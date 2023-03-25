@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+ background-color: white;
+   font-family: 'Poppins', sans-serif;
+}
+header{
+    width: 100%;
+    height: 50px;
+   background-color: red;
+    position: fixed;
+    top: 0;
+    left:0;
+   z-index: 100;
+}
+.nav
+{
+   max-width: 1000px;
+   margin: auto;
+   width: 100%;
+   height: 50px;
+   display:flex;
+   justify-content: space-between;
+   align-items: center;   
+}
+#logo
+{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+.box
+{
+    height: 30px;
+    width: 30px;
+    position: relative;
+}
+#count
+{
+    position: absolute;
+    left: 15px;
+     background-color: black;
+    color:white;
+    padding-left:2px;
+    padding-bottom:3px;
+    width: 13px;
+    height:22px;
+    border-radius: 50%;
+}
+#cart-i
+{
+    position: absolute;
+    top:13px;
+    font-size:20px;
+    padding-left:2px;
+    color: aliceblue;
+}
+.menu
+{
+    margin-left:40%;
+    display: flex;
+     column-gap: 1.9rem;    
+    
+}
+a{
+    text-decoration:none !important;
+    color: white;
+}
+img
+{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.container
+{
+    max-width: 1000px;
+    padding: 4rem;
+    margin: auto;
+    width: 100%;
+    z-index:99;
+}
+.title
+{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+.shop-content
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,auto));
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+}
+.electric-gadget
+{
+  background-color: rgb(78, 216, 226);
+   padding: 10px;
+   width: 200px;
+   height: 280px;
+   position: relative;
+}
+.electric-gadget:hover
+{
+    transform: scale(1.2);
+}
+.electric-gadget
+{
+    transition: 0.3s;
+}
+.device-title
+{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.add-cart
+{
+    position:absolute;
+    bottom:5px;
+    right:5px;
+    background-color:#2ed573;
+    height: 25px;
+    width: 25px;
+ color: white;
+ cursor: pointer;
+ transition: 0.5s;
+}
+.add-cart:hover{
+    background-color:rgb(255,0,0,0.786);
+}
+.cart
+{
+    position: fixed;
+    top:0;
+    right:-100%;
+      width: 370px;
+      height: 100vh;
+      padding: 20px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background-color: white;
+      z-index: 101;
+      
+}
+.container2
+{
+    position: absolute;
+   display: none;
+    padding: 4rem;
+    margin: auto;
+    width: 100%;
+
+    z-index:99;
+}
+.thanks
+{
+    margin-top:7%;
+    margin-left: 20%;
+}
+.orders
+{
+    display: grid;
+    row-gap: 1.5rem;
+    width:1-70px;
+      height:300px;
+      padding: 20px;
+    overflow-y: auto;
+      overflow-x: hidden;
+      background-color:transparent;
+      border: 1px solid rgb(0,0,0,0.1);
+      margin:auto;
+      z-index: 101;
+      
+}
+.placed-active
+{
+    position: absolute;
+    top: 0;
+    transition: 0.5;
+    display:block;
+   height: 100%;
+   margin: auto;
+    width:100%vh;
+    background-color: white;
+}
+.cart-remove1
+{
+    color:white;
+        font-size:1.2rem;
+    cursor: pointer;
+}
+.total1
+{
+    display: flex;
+     align-items: center;
+     justify-content:flex-end;
+     margin-top: 1rem;
+     margin-right:13%;    
+}
+.total1-title
+{
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.total1-amt
+{
+    margin-left: 10%;
+}
+.delivery1-details   
+{
+    margin-top:6%;
+}
+.del
+{
+    margin-left:15%;
+}
+.cart.cart-active
+{
+    right:0;
+    transition: 0.5s;
+}
+.cart-box
+{
+    display: grid;
+    grid-template-columns: 30% 55% 18%;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid rgb(0,0,0,0.1);
+     padding-bottom: 7px;
+     align-items: center;    
+}
+.cart-img
+{
+    width:65px;
+    height:85px;
+    border: 2px solid rgb(0,0,0,0.1);
+    padding: 2px;
+}
+.details
+{
+    display: grid;
+    row-gap: 1rem;
+}
+.price-col
+{
+    display: flex;
+    justify-content: space-between;
+}
+.cart-quantity
+{
+    width: 2rem;
+    outline: none;
+    border: 2px solid rgb(0,0,0,0.1);
+     text-align: center;
+}
+.cart-device-title
+{
+    text-transform: uppercase;
+    font-size:1rem;
+    font-weight: 600;
+    color:lightcoral;
+}
+.cart-title{
+    text-align: center;
+    font-size: 1rem;
+    font-weight:Bolder;
+    text-decoration: underline;
+}
+.cart-remove
+{
+    color: red;
+    font-size:1.2rem;
+    cursor: pointer;
+}
+.total
+{
+    display: flex;
+        justify-content: flex-end;
+        margin-top: 1rem;
+ }
+ .total-title
+{
+  font-size: 1rem;
+  font-weight:bolder;
+   text-transform: uppercase;
+}
+.total-price
+{
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+.buy
+{
+   width:40vh;
+   height:4vh;
+   margin-left:15px;
+   margin-top: 20px;
+ outline: none;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    background-color: darkblue;
+    cursor: pointer;
+}
+.close-cart
+{
+    position: absolute;
+    top:1.4rem;
+    right:1.3rem;
+    font-size:1.3rem;
+    cursor: pointer;
+
+}
+
+
+
+
+   </style>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+    <header>
+        <div class="nav">
+             <a href="#" id="logo">
+                <ion-icon name="phone-portrait"></ion-icon>
+                e-devices
+             </a>    
+             <div class="menu">
+              <a href="home.html" class="home">
+                 HOME
+              </a>   
+              <a href="index.html" class="our-devices">
+                OUR PRODUCTS
+             </a>
+              <a href="about.html" class="about">
+                 ABOUT
+              </a> 
+              <a href="#" class="contact">
+                 CONTACT US
+              </a> 
+             </div>  
+                <div class="box">
+                    <div id="count">0</div>
+                    <ion-icon name="cart" id="cart-i"></ion-icon>
+                </div>
+
+                <div class="cart">
+                    <div class="cart-title">CART ITEMS</div>
+                    <div class="cart-contents">
+<!-- 
+                      <div class="cart-box">
+                        <img src="redmi-11.jpg" alt="" class="cart-img">
+                        <div class="details">
+                           <div class="cart-device-title">redmi note 11</div>
+                                <div class="price-col">
+                                  <div class="price">Rs.11,999</div>
+                                  <div class="amt">Rs.11,999</div>
+                                </div>
+                                <input type="number" value="1" class="cart-quantity">
+                            </div>
+                            <ion-icon name="trash" class="cart-remove"></ion-icon>
+                      </div>
+
+                      <div class="cart-box">
+                        <img src="mi-band-3.jpg" alt="" class="cart-img">
+                        <div class="details">
+                           <div class="cart-device-title">miband-3</div>
+                                <div class="price-col">
+                                  <div class="price">Rs.1,999</div>
+                                  <div class="amt">Rs.1,999</div>
+                                </div>
+                                <input type="number" value="1" class="cart-quantity">
+                            </div>
+                            <ion-icon name="trash" class="cart-remove"></ion-icon>
+                      </div> -->
+
+                    </div>
+
+                    <div class="total">
+                      <div class="total-title">
+                        Total
+                      </div>
+                      <div class="total-price">
+                        Rs.0
+                      </div>
+                    </div>
+                  
+                    <button class="buy">place order</button>
+                 
+                    <ion-icon name="close" class="close-cart"></ion-icon>
+
+                </div>
+        </div>
+    </header>
+    <div class="container">
+        <h2 class="title">
+            CHOOSE YOUR BEST FIT
+        </h2>
+        <div class="shop-content">
+             
+            <div class="electric-gadget">
+              <div class="pic">
+                <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71Iq9ug6OvL._SX679_.jpg" alt="" class="device-image">
+              </div>
+              <h2 class="device-title">REDMI NOTE-11</h2>
+              <span class="device-price">Rs.11999</span>
+              <ion-icon name="cart" class="add-cart"></ion-icon>
+             </div>
+
+             <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/8104evx11QL._SX679_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">OPPO A78</h2>
+                <span class="device-price">Rs.12999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://rukminim1.flixcart.com/image/416/416/l19m93k0/mobile/v/c/i/-original-imagcv2dpkd75r6z.jpeg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">POCO X4</h2>
+                <span class="device-price">Rs.14999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/81gRC3KTeaL._SX679_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">REALME NARZO 50 A</h2>
+                <span class="device-price">Rs.13999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/91W42b8YW+L._SX679_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">SAMSUNG A 23</h2>
+                <span class="device-price">Rs.10999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/61adulQolcL._SX679_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">VIVO Y 100</h2>
+                <span class="device-price">Rs.23999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://img4.gadgetsnow.com/gd/images/products/additional/large/G142820_View_2/accessories/fitness-band/xiaomi-mi-band-3i-amoled-black-.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">MI BAND-3i</h2>
+                <span class="device-price">Rs.1999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71yzJoE7WlL._SX466_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">APPLE 14 PRO MAX</h2>
+                <span class="device-price">Rs.149000</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/81f+WzxMnYL._SX466_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">HP 14S</h2>
+                <span class="device-price">Rs.49999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+  
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://rukminim1.flixcart.com/image/416/416/kthjy4w0/smartwatch/f/m/g/android-ios-55025770-vid-b19v-huawei-yes-original-imag6tnpybczwjyz.jpeg?q=70" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">HUAWEI GT 2</h2>
+                <span class="device-price">Rs.14999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71HSkLoLDLL._SX679_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">IQOO -NEO 6 5G</h2>
+                <span class="device-price">Rs.28999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71AvQd3VzqL._SX679_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">ONE+ NODE CE-2</h2>
+                <span class="device-price">Rs.16999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://rukminim1.flixcart.com/image/416/416/krf91u80/mobile/i/f/m/f3-gt-mzb09huin-poco-original-imag57hec6wkrk77.jpeg?q=70" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">POCO F3-GT</h2>
+                <span class="device-price">Rs.15999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+           
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/51cyPt6jRUL.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">REALME-X3</h2>
+                <span class="device-price">Rs.13999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="http://i01.appmifile.com/webfile/globalimg/in/cms/82E02A4B-C7C8-FD69-A2C7-8E135C1CE017!800x800!85.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">REDMI NOTE 9 PRO</h2>
+                <span class="device-price">Rs.10999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/41kyuER2HjL._SX300_SY300_QL70_FMwebp_.jpg" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">SAMSUNG GALAXY S23</h2>
+                <span class="device-price">Rs.78999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+               <div class="electric-gadget">
+                <div class="pic">
+                  <img src="https://cdn.shopify.com/s/files/1/0137/0292/2286/products/S_01_360x.png?v=1675170806" alt="" class="device-image">
+                </div>
+                <h2 class="device-title">URBAN LYF-M </h2>
+                <span class="device-price">Rs.2999</span>
+                <ion-icon name="cart" class="add-cart"></ion-icon>
+               </div>
+
+
+
+
+        </div>
+    </div>
+   
+ 
+    <script>
+      const btnCart=document.querySelector('#cart-i');
+const cart=document.querySelector('.cart');
+const btnClose=document.querySelector('.close-cart');
+
+btnCart.addEventListener('click',()=>{
+  cart.classList.add('cart-active');
+});
+
+btnClose.addEventListener('click',()=>{
+  cart.classList.remove('cart-active');
+});
+
+document.addEventListener('DOMContentLoaded',loadFood);
+
+function loadFood(){
+  loadContent();
+
+}
+
+function loadContent(){
+  //Remove Food Items  From Cart
+  let btnRemove=document.querySelectorAll('.cart-remove');
+  btnRemove.forEach((btn)=>{
+    btn.addEventListener('click',removeItem);
+  });
+
+  //Product Item Change Event
+  let qtyElements=document.querySelectorAll('.cart-quantity');
+  qtyElements.forEach((input)=>{
+    input.addEventListener('change',changeQty);
+  });
+
+  //Product Cart
+  
+  let cartBtns=document.querySelectorAll('.add-cart');
+  cartBtns.forEach((btn)=>{
+    btn.addEventListener('click',addCart);
+  });
+
+  updateTotal();
+}
+
+
+//Remove Item
+function removeItem(){
+  if(confirm('Are Your Sure to Remove')){
+    let title=this.parentElement.querySelector('.cart-device-title');
+    itemList=itemList.filter(el=>el.title!=title);
+    this.parentElement.remove();
+    loadContent();
+  }
+}
+
+//Change Quantity
+function changeQty(){
+  if(isNaN(this.value) || this.value<1){
+    this.value=1;
+  }
+  loadContent();
+}
+
+let itemList=[];
+
+//Add Cart
+function addCart(){
+ let dev=this.parentElement;
+ let title=dev.querySelector('.device-title').innerHTML;
+ let price=dev.querySelector('.device-price').innerHTML;
+ let imgSrc=dev.querySelector('.device-image').src;
+ //console.log(title,price,imgSrc);
+ 
+ let newProduct={title,price,imgSrc}
+
+ //Check Product already Exist in Cart
+ if(itemList.find((el)=>el.title==newProduct.title)){
+  alert("Product Already added in Cart");
+  return;
+ }else{
+  itemList.push(newProduct);
+ }
+
+
+let newProductElement= createCartProduct(title,price,imgSrc);
+let element=document.createElement('div');
+element.innerHTML=newProductElement;
+let cartBasket=document.querySelector('.cart-contents');
+cartBasket.append(element);
+loadContent();
+}
+
+
+function createCartProduct(title,price,imgSrc){
+
+  return `
+  <div class="cart-box">
+  <img src="${imgSrc}" class="cart-img">
+  <div class="details">
+    <div class="cart-device-title">${title}</div>
+    <div class="price-col">
+      <div class="price">${price}</div>
+       <div class="amt">${price}</div>
+   </div>
+    <input type="number" value="1" class="cart-quantity">
+  </div>
+  <ion-icon name="trash" class="cart-remove"></ion-icon>
+</div>
+  `;
+}
+
+function updateTotal()
+{
+  const cartItems=document.querySelectorAll('.cart-box');
+  const totalValue=document.querySelector('.total-price');
+
+  let total=0;
+
+  cartItems.forEach((product)=>{
+    let priceEle=product.querySelector('.price');
+    console.log(priceEle);
+    let price=parseFloat(priceEle.innerHTML.replace("Rs.",""));
+    let qty=product.querySelector('.cart-quantity').value;
+    total+=(price*qty);
+    product.querySelector('.amt').innerText="Rs."+(price*qty);
+
+  });
+
+  totalValue.innerHTML='Rs.'+total;
+
+
+  // Add Product Count in Cart Icon
+
+  const cartCount=document.querySelector('#count');
+  let count=itemList.length;
+  cartCount.innerHTML=count;
+
+  if(count==0){
+    cartCount.style.display='none';
+  }else{
+    cartCount.style.display='block';
+  }
+loadContent();
+}
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+</body>
+</html>
